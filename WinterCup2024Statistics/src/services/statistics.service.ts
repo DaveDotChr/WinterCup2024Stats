@@ -8,6 +8,7 @@ import { Route } from '../model/Route';
   providedIn: 'root'
 })
 export class StatisticsService {
+  comparisonAthlete: Athlete;
   private baseUrl: string = "https://api.jsonbin.io/v3/b/";
   private accessKey: string = "$2a$10$SgdQwmBdhGVTGvBmK2jak.ahyBuYSck8l4IQmI1XkpeuM9t/QWAz6";
 
@@ -48,7 +49,7 @@ export class StatisticsService {
     return routes;
   }
 
-  public async getAthletes(){
+  public async getAthletes(): Promise<Athlete[]>{
     let athletes: Athlete[] = [];
     if(localStorage.getItem("athletes") != null && localStorage.getItem("athletes") != "undefined"){
       console.log("Using cache for athletes");

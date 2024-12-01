@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>WORK IN PROGRESS</h1>
+@if (comparisonAthlete != undefined) {
+  <h2 mat-dialog-title>Vergleich mit {{comparisonAthlete.name}}</h2>
+} @else {
+  <h2 mat-dialog-title>Vergleich mit ?</h2>
+}
+
+<mat-dialog-content>
+  @if(comparisonAthlete == undefined){
+    <div>Wähle eine Teilnehmer mit dem verglichen werden soll</div>
+    <br>
+    <mat-form-field>
+      <mat-label>Teilnehmer</mat-label>
+      <input type="text"
+           placeholder="Teilnehmer"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+      <mat-autocomplete (optionSelected)="optionSelected($event)" autoActiveFirstOption #auto="matAutocomplete">
+        @for (athlete of filteredAthletes | async; track athlete) {
+          <mat-option [value]="athlete.name">{{athlete.name}}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+    
+  } @else {
+
+    
+
+  }
+
+  <p>Hier soll noch angezeigt werden können, wie viele Versuche der Teilnehmer selbst bei dem Boulder hatte.</p>
+  <p>Unter anderem wird evtl. noch der direkte vergleich zwischen Teilnehmern implementiert.</p>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</mat-dialog-actions>
