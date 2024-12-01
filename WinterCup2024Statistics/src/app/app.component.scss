@@ -1,3 +1,8 @@
 mat-tab-group {
   width: 100%;
 }
+
+.tableContainer {
+  max-width: 100%; 
+  overflow-x: scroll;
+}
