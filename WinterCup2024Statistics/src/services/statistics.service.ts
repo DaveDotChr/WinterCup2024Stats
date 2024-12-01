@@ -7,7 +7,11 @@ import { Route } from '../model/Route';
 })
 export class StatisticsService {
 
-  private baseUrl: String = "http://localhost:3000/";
+  //Ja es juckt mich nicht dass der hier sichtbar ist, ist eh ein free account und hat nur read rechte :)
+  apiKey = "$2a$10$SgdQwmBdhGVTGvBmK2jak.ahyBuYSck8l4IQmI1XkpeuM9t/QWAz6";
+
+  private baseUrl: String = "https://api.jsonbin.io/v3/b/";
+  // private baseUrl: String = "http://localhost:3000/";
 
   constructor() { }
 
@@ -27,9 +31,13 @@ export class StatisticsService {
 
   public async getRouteStats(): Promise<Route[]>{
     
-    let resp = await fetch(this.baseUrl + "routeStats");
-    
-    return await resp.json() as Route[];
+    // let resp = await fetch(this.baseUrl + "routeStats");
+    let resp = await fetch(this.baseUrl + "674c8da4e41b4d34e45de99f", {
+      headers: {
+        "X-Access-Key": this.apiKey
+      }
+    });
+    return (await resp.json()).record.routeStats as Route[];
   }
 
   public saveRouteStats(routes: Route[]){

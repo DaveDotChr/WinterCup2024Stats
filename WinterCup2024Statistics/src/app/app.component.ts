@@ -29,6 +29,8 @@ export class AppComponent {
 
   constructor() {
     this.statsService.getRouteStats().then(async (routes) => {
+      console.log(routes);
+      
       this.routes = routes;
       this.dataSource = new MatTableDataSource(routes);
       
