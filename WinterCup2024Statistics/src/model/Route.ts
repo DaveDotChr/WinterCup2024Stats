@@ -1,5 +1,5 @@
 export class Route {
-  id: Number;
+  routeId: Number;
   difficulty: number;
   numTop: number;
   numTopMen: number = 0;
