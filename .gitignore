@@ -128,3 +128,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+wintercup2024/target/wintercup2024-1.0-SNAPSHOT.jar
+target
