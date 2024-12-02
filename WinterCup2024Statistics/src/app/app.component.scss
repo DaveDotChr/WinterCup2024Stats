@@ -3,6 +3,7 @@ mat-tab-group {
 }
 
 .tableContainer {
-  //max-width: 100%; 
-  //overflow-x: scroll;
+  width: 100%;
+  overflow-x: auto;
+  height: 100vh;
 }
