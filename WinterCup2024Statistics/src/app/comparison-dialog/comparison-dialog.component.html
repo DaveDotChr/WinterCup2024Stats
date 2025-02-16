@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>WORK IN PROGRESS</h1>
+<h1 mat-dialog-title>Boulder {{data.id}} {{schwierigkeitString}}</h1>
 @if (comparisonAthlete != undefined) {
   <h2 mat-dialog-title>Vergleich mit {{comparisonAthlete.name}}</h2>
 } @else {
@@ -24,8 +24,32 @@
       </mat-form-field>
       
     } @else {
-  
-  
+      <div class="compRow">
+        <div></div>
+        <div>
+          <h3>Hallen Avg.</h3>
+        </div>
+        <div>
+          <h3>Eigener Score</h3>
+        </div>
+      </div>
+      <div class="compRow">
+        <div>
+          <h3>Flash %</h3>
+        </div>
+        <div>
+          {{data.numTop / athletesList.length * 100 | number: "1.1-2"}} %
+          {{data.numFlash / athletesList.length * 100 | number: "1.1-2"}} %
+        </div>
+        <div>
+          <h3>Avg. Versuche</h3>
+          {{data.numAttempts / data.numTop | number: "1.1-2"}}
+        </div>
+      </div>
+      <div>
+
+      </div>
+      
   
     }
   
@@ -38,5 +62,8 @@
 }
 
 <mat-dialog-actions>
+  @if (comparisonAthlete) {
+    <button mat-button (click)="clearAthlete()">Athlet wechseln</button>
+  }
   <button mat-button (click)="onNoClick()">Close</button>
 </mat-dialog-actions>

@@ -5,5 +5,37 @@ mat-tab-group {
 .tableContainer {
   width: 100%;
   overflow-x: auto;
-  height: 100vh;
+  height: calc(100vh - 50px); //Janky hack, funkt wahrscheinlich nicht auf jedem gerät
+}
+
+.compRow {
+  display: flex;
+  height: 4rem;
+  width: 100%;
+}
+
+.compRow:nth-of-type(1n) {
+  border-bottom-color: var(--mat-sys-outline, rgba(0, 0, 0, 0.12));
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.compRow > div {
+  width: 33%;
+  border-right-color: var(--mat-sys-outline, rgba(0, 0, 0, 0.12));
+  border-right-width: 1px;
+  border-right-style: solid;
+  align-items: center;
+}
+
+.compRow > div:nth-last-child(1) {
+  width: 33%;
+  border-right-color: unset;
+  border-right-width: unset;
+  border-right-style: unset;
+}
+
+
+.compRow > div:nth-child(1n) {
+  width: 33%;
 }

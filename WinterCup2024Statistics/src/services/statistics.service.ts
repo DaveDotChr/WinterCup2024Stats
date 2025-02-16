@@ -71,19 +71,10 @@ export class StatisticsService {
     return athletes;
   }
 
-  // public saveRouteStats(routes: Route[]){
-  //   console.log(JSON.stringify(routes));
-    
-    
-  //   routes.forEach(route => {
-  //     route.routeId = Number.parseInt(route.id.toString());
-  //     console.log(JSON.stringify(route));
-      
-  //     fetch(this.baseUrl + "routeStats", {
-  //       method: 'POST',
-  //       body: JSON.stringify(route)
-  //     })
-  //   });
-  // }
+
+
+  public calcRouteStats(route: Route){
+    return route.numTop / route.numAttempts;
+  }
 
 }
